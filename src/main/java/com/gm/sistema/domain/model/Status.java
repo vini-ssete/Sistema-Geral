@@ -9,6 +9,6 @@ package com.gm.sistema.domain.model;
  * @author digma
  */
 public enum Status {
-    ABERTO, FECHADO, CANCELADO
+    AGENDADO, CONCLUIDO, CANCELADO
     
 }
