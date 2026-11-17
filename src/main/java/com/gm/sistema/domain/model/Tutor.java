@@ -4,12 +4,14 @@
  */
 package com.gm.sistema.domain.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 /**
  *
  * @author digma
  */
+@Entity
 public class Tutor {
     
     @Id
