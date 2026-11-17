@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 /**
  *
@@ -23,6 +24,8 @@ public class Pet {
     private String especie;
     private String sexo;
     private String raca;
+    
+    @ManyToOne
     private Tutor tutor;
 
     public Pet() {
