@@ -5,6 +5,8 @@
 package com.gm.sistema.domain.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,16 +24,17 @@ public class Pet {
     private Long id;            
     private String nome;
     private String especie;
-    private String sexo;
+    @Enumerated(EnumType.STRING)
+    private Sexo sexo;
     private String raca;
-    
+
     @ManyToOne
     private Tutor tutor;
 
     public Pet() {
     }
 
-    public Pet(Long id, String nome, String especie, String sexo, String raca, Tutor tutor) {
+    public Pet(Long id, String nome, String especie, Sexo sexo, String raca, Tutor tutor) {
         this.id = id;
         this.nome = nome;
         this.especie = especie;
@@ -56,11 +59,11 @@ public class Pet {
         this.nome = nome;
     }
 
-    public String getSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
 
