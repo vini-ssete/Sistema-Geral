@@ -44,6 +44,11 @@ public class Agendamento {
         this.status = status;
     }
 
+    public Agendamento(Pet pet, LocalDateTime dataConsulta) {
+        this.pet = pet;
+        this.dataConsulta = dataConsulta;
+    }
+
     public Long getId() {
         return id;
     }
