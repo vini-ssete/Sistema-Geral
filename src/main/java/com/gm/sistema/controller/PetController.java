@@ -6,6 +6,7 @@ package com.gm.sistema.controller;
 
 import com.gm.sistema.domain.model.Pet;
 import com.gm.sistema.domain.model.Sexo;
+import com.gm.sistema.domain.model.Pet;
 import com.gm.sistema.repository.PetRepository;
 import com.gm.sistema.service.PetService;
 import jakarta.validation.Valid;
@@ -42,9 +43,31 @@ public class PetController {
     return petRepository.findAll();
     }
     
-    @GetMapping ("/{sexo}")
+    @GetMapping ("/sexo/{sexo}")
     public List<Pet> buscarPorSexo(@PathVariable Sexo sexo) {
          return petRepository.findBySexo(sexo);
+    }
+    
+    @GetMapping ("/{petID}")
+    public ResponseEntity<Pet> buscar(@PathVariable Long petID) {
+        
+        Optional<Pet> pet = petRepository.findById(petID);
+        
+        if (pet.isPresent()) {
+            return ResponseEntity.ok(pet.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+    @GetMapping ("/tutor/{tutorID}")
+    public List<Pet> buscarPorIDdoTutor(@PathVariable Long tutorID) {
+        return petRepository.findByTutorId(tutorID);
+    }
+    
+    @GetMapping ("/tutor-nome/{nome}")
+    public List<Pet> buscarPorSexo(@PathVariable String nome) {
+         return petRepository.findByTutorNomeContainingIgnoreCase(nome);
     }
     
     @PostMapping("/cadastrar")
