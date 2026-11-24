@@ -5,6 +5,8 @@
 package com.gm.sistema.repository;
 
 import com.gm.sistema.domain.model.Pet;
+import com.gm.sistema.domain.model.Sexo;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +16,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Object>{
-    
+    List<Pet> findBySexo(Sexo sexo);
 }
